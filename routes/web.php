@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Frontend
+Route::get('/', fn() => view('frontend.home'));
+Route::get('/about', fn() => view('frontend.about'));
+Route::get('/contact', fn() => view('frontend.contact'));
+
+// Backend (RBAC protected)
+Route::middleware(['auth','permission:view_admin_dashboard'])->group(function () {
+    Route::get('/admin/dashboard', fn() => view('admin.dashboard'));
+});
+
+Route::middleware(['permission:create_user'])->group(function () {
+    Route::get('/admin/users/create', [UserController::class, 'create']);
+});
