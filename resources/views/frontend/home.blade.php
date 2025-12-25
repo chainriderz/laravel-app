@@ -20,6 +20,11 @@
     .nice-select .list {
         z-index: 99999;
     }
+
+    .btn-wrapper {
+        display: block !important;
+        margin-top: 0px !important;
+    }
 </style>
 
 <!-- Utilize Cart Menu Start -->
@@ -255,14 +260,22 @@
                                 <div class="ltn__car-dealer-form-tab">
                                     <div class="ltn__tab-menu  text-uppercase text-center">
                                         <div class="nav">
-                                            <a class="active show" data-bs-toggle="tab" href="#ltn__form_tab_1_1"><i class="fas fa-home"></i>Rent Home</a>
-                                            <a data-bs-toggle="tab" href="#ltn__form_tab_1_2" class=""><i class="fas fa-home"></i>Sale Home</a>
+                                            <a class="active show" data-bs-toggle="tab" href="#ltn__form_tab_1_1"><i class="fas fa-hand-holding-usd"></i>Buy</a>
+                                            <a data-bs-toggle="tab" href="#ltn__form_tab_1_2" class=""><i class="fas fa-key"></i>Rent</a>
+                                            <a data-bs-toggle="tab" href="#ltn__form_tab_1_3" class=""><i class="fas fa-house-user"></i>Projects</a>
                                         </div>
                                     </div>
                                     <div class="tab-content pb-10">
                                         <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
                                             <div class="car-dealer-form-inner">
                                                 <form action="#" class="ltn__car-dealer-form-box row"> 
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
+                                                        <select class="nice-select">
+                                                            <option>Select Property Type</option>
+                                                            <option value="1">All Residential</option>
+                                                            <option value="2">All Commercial</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
                                                         <select class="nice-select">
                                                             <option>Property Type</option>
@@ -294,8 +307,8 @@
                                                             <option>West Side</option>
                                                         </select>
                                                     </div>
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
-                                                        <div class="btn-wrapper text-center mt-0">
+                                                    <div class="car-price-filter-range col-lg-12">
+                                                        <div class="btn-wrapper text-center">
                                                             <!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
                                                             <a href="shop-right-sidebar.html" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search</a>
                                                         </div>
@@ -308,6 +321,13 @@
                                                 <form action="#" class="ltn__car-dealer-form-box row"> 
                                                     <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
                                                         <select class="nice-select">
+                                                            <option>Select Property Type</option>
+                                                            <option value="1">All Residential</option>
+                                                            <option value="2">All Commercial</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
+                                                        <select class="nice-select">
                                                             <option>Property Type</option>
                                                             <option>Apartment</option>
                                                             <option>Co-op</option>
@@ -337,8 +357,58 @@
                                                             <option>West Side</option>
                                                         </select>
                                                     </div>
+                                                    <div class="car-price-filter-range col-lg-12">
+                                                        <div class="btn-wrapper text-center">
+                                                            <!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
+                                                            <a href="shop-right-sidebar.html" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search</a>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="ltn__form_tab_1_3">
+                                            <div class="car-dealer-form-inner">
+                                                <form action="#" class="ltn__car-dealer-form-box row"> 
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
+                                                        <select class="nice-select">
+                                                            <option>Select Property Type</option>
+                                                            <option value="1">All Residential</option>
+                                                            <option value="2">All Commercial</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
+                                                        <select class="nice-select">
+                                                            <option>Property Type</option>
+                                                            <option>Apartment</option>
+                                                            <option>Co-op</option>
+                                                            <option>Condo</option>
+                                                            <option>Single Family Home</option>
+                                                        </select>
+                                                    </div> 
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-meter col-lg-3 col-md-6">
+                                                        <select class="nice-select">
+                                                            <option>Location</option>
+                                                            <option>chicago</option>
+                                                            <option>London</option>
+                                                            <option>Los Angeles</option>
+                                                            <option>New York</option>
+                                                            <option>New Jersey</option>
+                                                        </select>
+                                                    </div> 
                                                     <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
-                                                        <div class="btn-wrapper text-center mt-0">
+                                                        <select class="nice-select">
+                                                            <option>Sub Location</option>
+                                                            <option>Bayonne</option>
+                                                            <option>Greenville</option>
+                                                            <option>Manhattan</option>
+                                                            <option>Queens</option>
+                                                            <option>The Heights</option>
+                                                            <option>Upper East Side</option>
+                                                            <option>West Side</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="car-price-filter-range col-lg-12">
+                                                        <div class="btn-wrapper text-center">
                                                             <!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
                                                             <a href="shop-right-sidebar.html" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search</a>
                                                         </div>

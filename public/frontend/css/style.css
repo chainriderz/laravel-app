@@ -4142,7 +4142,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     Header Top Area
 ---------------------------------------------- */
 .ltn__header-top-area {
-  border-bottom: 1px solid;
+  border-bottom: 0px solid;
   border-color: var(--border-color-3); }
   .ltn__header-top-area .ltn__social-media ul li {
     font-size: 14px;
@@ -4198,7 +4198,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     background-color: var(--ltn__secondary-color);
     color: var(--white); }
     .header-top-btn a:hover {
-      background-color: var(--ltn__secondary-color-2); }
+      background-color: var(--section-bg-1);
+      color: var(--ltn__heading-color);
+    }
 
 /* ----------------------------------------------
     Header Middle Area

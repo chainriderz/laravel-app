@@ -47,7 +47,7 @@
                                 <li>
                                     <!-- header-top-btn -->
                                     <div class="header-top-btn">
-                                        <a href="add-listing.html">Add Listing</a>
+                                        <a href="add-listing.html">Post Property</a>
                                     </div>
                                 </li>
                             </ul>

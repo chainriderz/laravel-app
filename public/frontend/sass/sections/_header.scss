@@ -27,7 +27,7 @@
     Header Top Area
 ---------------------------------------------- */
 .ltn__header-top-area {
-    border-bottom: 1px solid;
+    border-bottom: 0px solid;
     border-color: var(--border-color-3);
     .ltn__social-media ul li {
         font-size: 14px;
@@ -93,7 +93,8 @@
         background-color: var(--ltn__secondary-color);
         color: var(--white);
         &:hover {
-            background-color: var(--ltn__secondary-color-2);
+            background-color: var(--section-bg-1);
+            color: var(--ltn__heading-color);
         }
     }
 }
