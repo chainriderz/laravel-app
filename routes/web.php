@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ Route::get('/', function () {
 });
 
 // Frontend
-Route::get('/', fn() => view('frontend.home'));
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', fn() => view('frontend.about'));
 Route::get('/contact', fn() => view('frontend.contact'));
 

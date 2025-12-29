@@ -55,13 +55,6 @@
         }
     }
 
-    /* Mobile & tablet – remove padding */
-    /*@media (max-width: 991px) {
-        .property-type-fix {
-            padding-right: 0;
-        }
-    }*/
-
     /*Below styleing is optional*/
     @media (max-width: 767px) {
         .ltn__car-dealer-form-item {
@@ -322,8 +315,9 @@
                                                     <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6 property-type-fix">
                                                         <select class="nice-select">
                                                             <option>Property Type</option>
-                                                            <option value="1">Residential</option>
-                                                            <option value="2">Commercial</option>
+                                                            @foreach($propertyTypes as $key => $type)
+                                                                <option value="{{ $key }}">{{ $type }}</option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
 
