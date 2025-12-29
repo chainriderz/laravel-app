@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Place favicon.png in the root directory -->
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ asset('frontend/img/favicon.png') }}" type="image/x-icon" />
     <!-- Font Icons css -->
     <link rel="stylesheet" href="{{ asset('frontend/css/font-icons.css') }}">
     <!-- plugins css -->
@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <!-- Responsive css -->
     <link rel="stylesheet" href="{{ asset('frontend/css/responsive.css') }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    @stack('styles')
 </head>
 
 <body>
@@ -52,7 +56,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
                                         <div class="modal-product-img">
-                                            <img src="img/product/4.png" alt="#">
+                                            <img src="{{ asset('frontend/img/product/4.png') }}" alt="#">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
@@ -161,7 +165,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="modal-product-img">
-                                            <img src="img/product/1.png" alt="#">
+                                            <img src="{{ asset('frontend/img/product/1.png') }}" alt="#">
                                         </div>
                                          <div class="modal-product-info">
                                             <h5><a href="product-details.html">3 Rooms Manhattan</a></h5>
@@ -175,7 +179,7 @@
                                          <div class="additional-info d-none">
                                             <p>We want to give you <b>10% discount</b> for your first order, <br>  Use discount code at checkout</p>
                                             <div class="payment-method">
-                                                <img src="img/icons/payment.png" alt="#">
+                                                <img src="{{ asset('frontend/img/icons/payment.png') }}" alt="#">
                                             </div>
                                          </div>
                                     </div>
@@ -205,7 +209,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="modal-product-img">
-                                            <img src="img/product/7.png" alt="#">
+                                            <img src="{{ asset('frontend/img/product/7.png') }}" alt="#">
                                         </div>
                                          <div class="modal-product-info">
                                             <h5><a href="product-details.html">3 Rooms Manhattan</a></h5>
@@ -218,7 +222,7 @@
                                          <div class="additional-info d-none">
                                             <p>We want to give you <b>10% discount</b> for your first order, <br>  Use discount code at checkout</p>
                                             <div class="payment-method">
-                                                <img src="img/icons/payment.png" alt="#">
+                                                <img src="{{ asset('frontend/img/icons/payment.png') }}" alt="#">
                                             </div>
                                          </div>
                                     </div>
@@ -249,6 +253,10 @@
     <!-- All JS Plugins -->
     <script src="{{ asset('frontend/js/plugins.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    @stack('scripts')
   
 </body>
 </html>

@@ -2,9 +2,36 @@
 
 @section('title', 'Home')
 
-@section('content')
-
+@push('styles')
 <style type="text/css">
+    /* Match Select2 height with Search button */
+    .select2-container--default .select2-selection--single {
+        height: 60px;                 /* SAME as search button */
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 40px; /* space for icon */
+    }
+
+    /* Search icon */
+    .select2-container--default .select2-selection--single::before {
+        content: "\f002"; /* FontAwesome search */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #a0a0a0;
+        font-size: 14px;
+        pointer-events: none;
+    }
+
+    .select2-container--default.select2-container--has-value 
+    .select2-selection--single::before {
+        display: none;
+    }
+
     .ltn__slider-area,
     .ltn__slide-item,
     .ltn__slide-item-inner,
@@ -20,12 +47,35 @@
     .nice-select .list {
         z-index: 99999;
     }
+    
+    /* Desktop only spacing fix */
+    @media (min-width: 992px) {
+        .property-type-fix {
+            padding-right: 140px;
+        }
+    }
 
-    .btn-wrapper {
-        display: block !important;
-        margin-top: 0px !important;
+    /* Mobile & tablet – remove padding */
+    /*@media (max-width: 991px) {
+        .property-type-fix {
+            padding-right: 0;
+        }
+    }*/
+
+    /*Below styleing is optional*/
+    @media (max-width: 767px) {
+        .ltn__car-dealer-form-item {
+            margin-bottom: 12px;
+        }
+
+        .btn-wrapper a.btn {
+            width: 100%;
+        }
     }
 </style>
+@endpush
+
+@section('content')
 
 <!-- Utilize Cart Menu Start -->
 <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
@@ -265,50 +315,23 @@
                                             <a data-bs-toggle="tab" href="#ltn__form_tab_1_3" class=""><i class="fas fa-house-user"></i>Projects</a>
                                         </div>
                                     </div>
-                                    <div class="tab-content pb-10">
+                                    <div class="tab-content pb-2 rounded">
                                         <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
                                             <div class="car-dealer-form-inner">
-                                                <form action="#" class="ltn__car-dealer-form-box row"> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Select Property Type</option>
-                                                            <option value="1">All Residential</option>
-                                                            <option value="2">All Commercial</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
+                                                <form action="#" class="ltn__car-dealer-form-box row">
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6 property-type-fix">
                                                         <select class="nice-select">
                                                             <option>Property Type</option>
-                                                            <option>Apartment</option>
-                                                            <option>Co-op</option>
-                                                            <option>Condo</option>
-                                                            <option>Single Family Home</option>
-                                                        </select>
-                                                    </div> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-meter col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Location</option>
-                                                            <option>chicago</option>
-                                                            <option>London</option>
-                                                            <option>Los Angeles</option>
-                                                            <option>New York</option>
-                                                            <option>New Jersey</option>
-                                                        </select>
-                                                    </div> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Sub Location</option>
-                                                            <option>Bayonne</option>
-                                                            <option>Greenville</option>
-                                                            <option>Manhattan</option>
-                                                            <option>Queens</option>
-                                                            <option>The Heights</option>
-                                                            <option>Upper East Side</option>
-                                                            <option>West Side</option>
+                                                            <option value="1">Residential</option>
+                                                            <option value="2">Commercial</option>
                                                         </select>
                                                     </div>
-                                                    <div class="car-price-filter-range col-lg-12">
-                                                        <div class="btn-wrapper text-center">
+
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-6 col-md-6">
+                                                            <select id="globalSearch" class="form-control"></select>
+                                                    </div>
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
+                                                        <div class="btn-wrapper text-center mt-0">
                                                             <!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
                                                             <a href="shop-right-sidebar.html" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search</a>
                                                         </div>
@@ -318,47 +341,20 @@
                                         </div>
                                         <div class="tab-pane fade" id="ltn__form_tab_1_2">
                                             <div class="car-dealer-form-inner">
-                                                <form action="#" class="ltn__car-dealer-form-box row"> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Select Property Type</option>
-                                                            <option value="1">All Residential</option>
-                                                            <option value="2">All Commercial</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
+                                                <form action="#" class="ltn__car-dealer-form-box row">
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6 property-type-fix">
                                                         <select class="nice-select">
                                                             <option>Property Type</option>
-                                                            <option>Apartment</option>
-                                                            <option>Co-op</option>
-                                                            <option>Condo</option>
-                                                            <option>Single Family Home</option>
-                                                        </select>
-                                                    </div> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-meter col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Location</option>
-                                                            <option>chicago</option>
-                                                            <option>London</option>
-                                                            <option>Los Angeles</option>
-                                                            <option>New York</option>
-                                                            <option>New Jersey</option>
-                                                        </select>
-                                                    </div> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Sub Location</option>
-                                                            <option>Bayonne</option>
-                                                            <option>Greenville</option>
-                                                            <option>Manhattan</option>
-                                                            <option>Queens</option>
-                                                            <option>The Heights</option>
-                                                            <option>Upper East Side</option>
-                                                            <option>West Side</option>
+                                                            <option value="1">Residential</option>
+                                                            <option value="2">Commercial</option>
                                                         </select>
                                                     </div>
-                                                    <div class="car-price-filter-range col-lg-12">
-                                                        <div class="btn-wrapper text-center">
+
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-6 col-md-6">
+                                                            <select id="globalSearch2" class="form-control"></select>
+                                                    </div>
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
+                                                        <div class="btn-wrapper text-center mt-0">
                                                             <!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
                                                             <a href="shop-right-sidebar.html" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search</a>
                                                         </div>
@@ -368,47 +364,20 @@
                                         </div>
                                         <div class="tab-pane fade" id="ltn__form_tab_1_3">
                                             <div class="car-dealer-form-inner">
-                                                <form action="#" class="ltn__car-dealer-form-box row"> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Select Property Type</option>
-                                                            <option value="1">All Residential</option>
-                                                            <option value="2">All Commercial</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6">
+                                                <form action="#" class="ltn__car-dealer-form-box row">
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6 property-type-fix">
                                                         <select class="nice-select">
                                                             <option>Property Type</option>
-                                                            <option>Apartment</option>
-                                                            <option>Co-op</option>
-                                                            <option>Condo</option>
-                                                            <option>Single Family Home</option>
-                                                        </select>
-                                                    </div> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-meter col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Location</option>
-                                                            <option>chicago</option>
-                                                            <option>London</option>
-                                                            <option>Los Angeles</option>
-                                                            <option>New York</option>
-                                                            <option>New Jersey</option>
-                                                        </select>
-                                                    </div> 
-                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
-                                                        <select class="nice-select">
-                                                            <option>Sub Location</option>
-                                                            <option>Bayonne</option>
-                                                            <option>Greenville</option>
-                                                            <option>Manhattan</option>
-                                                            <option>Queens</option>
-                                                            <option>The Heights</option>
-                                                            <option>Upper East Side</option>
-                                                            <option>West Side</option>
+                                                            <option value="1">Residential</option>
+                                                            <option value="2">Commercial</option>
                                                         </select>
                                                     </div>
-                                                    <div class="car-price-filter-range col-lg-12">
-                                                        <div class="btn-wrapper text-center">
+
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-6 col-md-6">
+                                                            <select id="globalSearch3" class="form-control"></select>
+                                                    </div>
+                                                    <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
+                                                        <div class="btn-wrapper text-center mt-0">
                                                             <!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
                                                             <a href="shop-right-sidebar.html" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search</a>
                                                         </div>
@@ -424,53 +393,6 @@
                 </div>
             </div>
         </div>
-        <!-- ltn__slide-item -->
-        <!-- <div class="ltn__slide-item ltn__slide-item-2  ltn__slide-item-3-normal--- ltn__slide-item-3 bg-image bg-overlay-theme-black-60" data-bs-bg="img/slider/12.jpg">
-            <div class="ltn__slide-item-inner  text-right text-end">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 align-self-center">
-                            <div class="slide-item-info">
-                                <div class="slide-item-info-inner ltn__slide-animation">
-                                    <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
-                                    <h1 class="slide-title animated ">Find Your Dream <br> House By Us</h1>
-                                    <div class="slide-brief animated">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                    </div>
-                                    <div class="btn-wrapper animated">
-                                        <a href="shop.html" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- ltn__slide-item -->
-        <!-- <div class="ltn__slide-item ltn__slide-item-2  ltn__slide-item-3-normal--- ltn__slide-item-3 bg-image bg-overlay-theme-black-60" data-bs-bg="img/slider/13.jpg">
-            <div class="ltn__slide-item-inner  text-left">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 align-self-center">
-                            <div class="slide-item-info">
-                                <div class="slide-item-info-inner ltn__slide-animation">
-                                    <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Real Estate Agency</h6>
-                                    <h1 class="slide-title animated ">Find Your Dream <br> House By Us</h1>
-                                    <div class="slide-brief animated">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                                    </div>
-                                    <div class="btn-wrapper animated">
-                                        <a href="shop.html" class="theme-btn-1 btn btn-effect-1">Make An Enquiry</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!--  -->
     </div>
 </div>
 <!-- SLIDER AREA END -->
@@ -1839,3 +1761,73 @@
 <!-- CALL TO ACTION END -->
 
 @endsection
+
+@push('scripts')
+<script>
+    $('#globalSearch').select2({
+            placeholder: 'Search city, area, project, landmark...',
+            allowClear: true,
+            minimumInputLength: 2,
+            width: '100%',
+            ajax: {
+                url: '/new-web-prod/search-suggestions.php',
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        q: params.term
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: data
+                    };
+                }
+            }
+        });
+
+        $('#globalSearch2').select2({
+            placeholder: 'Search city, area, project, landmark...',
+            allowClear: true,
+            minimumInputLength: 2,
+            width: '100%',
+            ajax: {
+                url: '/new-web-prod/search-suggestions.php',
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        q: params.term
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: data
+                    };
+                }
+            }
+        });
+
+        $('#globalSearch3').select2({
+            placeholder: 'Search city, area, project, landmark...',
+            allowClear: true,
+            minimumInputLength: 2,
+            width: '100%',
+            ajax: {
+                url: '/new-web-prod/search-suggestions.php',
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        q: params.term
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: data
+                    };
+                }
+            }
+        });
+</script>
+@endpush
