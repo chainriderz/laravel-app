@@ -810,7 +810,7 @@
                 <div class="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1 active">
                     <div class="ltn__feature-icon">
                         <!-- <span><i class="flaticon-house-3"></i></span> -->
-                        <img src="{{ asset('frontend/img/icons/icon-img/22.png') }}" alt="#">
+                        <img src="{{ asset('frontend/img/icons/icon-img/home_loan.png') }}" alt="#">
                     </div>
                     <div class="ltn__feature-info">
                         <h3><a href="service-details.html">Home Loan</a></h3>
