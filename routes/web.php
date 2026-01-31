@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 // Frontend
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/search', [HomeController::class, 'search'])->name('property.search');
+
 Route::get('/about', fn() => view('frontend.about'));
 Route::get('/contact', fn() => view('frontend.contact'));
 

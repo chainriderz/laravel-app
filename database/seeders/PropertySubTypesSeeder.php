@@ -13,13 +13,16 @@ class PropertySubTypesSeeder extends Seeder
      */
     public function run(): void
     {
-        PropertySubType::insert([
-		    ['property_type_id' => 1, 'name' => 'Flat'],
-		    ['property_type_id' => 1, 'name' => 'Villa'],
-		    ['property_type_id' => 1, 'name' => 'Apartment'],
-		    ['property_type_id' => 2, 'name' => 'Office Space'],
-		    ['property_type_id' => 2, 'name' => 'Shop'],
-		    ['property_type_id' => 2, 'name' => 'Godown'],
-		]);
+        PropertySubType::upsert(
+		    [
+		        ['id' => 1, 'property_type_id' => 1, 'name' => 'Flat'],
+		        ['id' => 2, 'property_type_id' => 1, 'name' => 'Villa'],
+		        ['id' => 3, 'property_type_id' => 1, 'name' => 'Apartment'],
+		        ['id' => 4, 'property_type_id' => 2, 'name' => 'Office'],
+		        ['id' => 5, 'property_type_id' => 2, 'name' => 'Shop'],
+		    ],
+		    ['id'],
+		    ['name', 'property_type_id']
+		);
     }
 }

@@ -313,10 +313,10 @@
                                             <div class="car-dealer-form-inner">
                                                 <form action="#" class="ltn__car-dealer-form-box row">
                                                     <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-car col-lg-3 col-md-6 property-type-fix">
-                                                        <select class="nice-select">
-                                                            <option>Property Type</option>
+                                                        <select class="nice-select" id="propertyType">
+                                                            <option value="">Property Type</option>
                                                             @foreach($propertyTypes as $key => $type)
-                                                                <option value="{{ $key }}">{{ $type }}</option>
+                                                                <option value="{{ $key }}">{{ $type->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -327,7 +327,7 @@
                                                     <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-3 col-md-6">
                                                         <div class="btn-wrapper text-center mt-0">
                                                             <!-- <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search Inventory</button> -->
-                                                            <a href="shop-right-sidebar.html" class="btn theme-btn-1 btn-effect-1 text-uppercase">Search</a>
+                                                            <a href="shop-right-sidebar.html" class="btn theme-btn-1 btn-effect-1 text-uppercase rounded">Search</a>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -391,170 +391,395 @@
 </div>
 <!-- SLIDER AREA END -->
 
-<!-- ABOUT US AREA START -->
-<div class="ltn__about-us-area pt-120 pb-90 ">
+<!-- PRODUCT SLIDER AREA START -->
+<div class="ltn__product-slider-area ltn__product-gutter pt-115 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 align-self-center">
-                <div class="about-us-img-wrap about-img-left">
-                    <img src="{{ asset('frontend/img/others/7.png') }}" alt="About Us Image">
-                    <div class="about-us-img-info about-us-img-info-2 about-us-img-info-3">
-                        
-                        <div class="ltn__video-img ltn__animation-pulse1">
-                            <img src="{{ asset('frontend/img/others/8.png') }}" alt="video popup bg image">
-                            <a class="ltn__video-icon-2 ltn__video-icon-2-border---" href="https://www.youtube.com/embed/X7R-q9rsrtU?autoplay=1&showinfo=0"  data-rel="lightcase:myCollection">
-                                <i class="fa fa-play"></i>
-                            </a>
+            <div class="col-lg-12">
+                <div class="section-title-area ltn__section-title-2--- text-center">
+                    <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Property</h6>
+                    <h1 class="section-title">New Launch Property</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row ltn__product-slider-item-three-active slick-arrow-1">
+            <!-- ltn__product-item -->
+            <div class="col-xl-4 col-sm-6 col-12">
+                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/1.jpg') }}" alt="#"></a>
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badg">For Rent</li>
+                            </ul>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        <div class="product-img-location">
+                            <ul>
+                                <li>
+                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                            <li><span>3 </span>
+                                Bed
+                            </li>
+                            <li><span>2 </span>
+                                Bath
+                            </li>
+                            <li><span>3450 </span>
+                                Square Ft
+                            </li>
+                        </ul>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 align-self-center">
-                <div class="about-us-info-wrap">
-                    <div class="section-title-area ltn__section-title-2--- mb-20">
-                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">About Us</h6>
-                        <h1 class="section-title">The Leading Real Estate
-                            Rental Marketplace<span>.</span></h1>
-                        <p>Over 39,000 people work for us in more than 70 countries all over the
-                            This breadth of global coverage, combined with specialist services</p>
+            <!-- ltn__product-item -->
+            <div class="col-xl-4 col-sm-6 col-12">
+                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/2.jpg') }}" alt="#"></a>
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="ltn__list-item-half clearfix">
-                        <li>
-                            <i class="flaticon-home-2"></i>
-                            Smart Home Design
-                        </li>
-                        <li>
-                            <i class="flaticon-mountain"></i>
-                            Beautiful Scene Around
-                        </li>
-                        <li>
-                            <i class="flaticon-heart"></i>
-                            Exceptional Lifestyle
-                        </li>
-                        <li>
-                            <i class="flaticon-secure"></i>
-                            Complete 24/7 Security
-                        </li>
-                    </ul>
-                    <div class="ltn__callout bg-overlay-theme-05  mt-30">
-                        <p>"Enimad minim veniam quis nostrud exercitation <br>
-                            llamco laboris. Lorem ipsum dolor sit amet" </p>
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badg">For Sale</li>
+                            </ul>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        <div class="product-img-location">
+                            <ul>
+                                <li>
+                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                            <li><span>3 </span>
+                                Bed
+                            </li>
+                            <li><span>2 </span>
+                                Bath
+                            </li>
+                            <li><span>3450 </span>
+                                Square Ft
+                            </li>
+                        </ul>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="btn-wrapper animated">
-                        <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
+                    <div class="product-info-bottom">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- ltn__product-item -->
+            <div class="col-xl-4 col-sm-6 col-12">
+                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/3.jpg') }}" alt="#"></a>
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badg">For Rent</li>
+                            </ul>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        <div class="product-img-location">
+                            <ul>
+                                <li>
+                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                            <li><span>3 </span>
+                                Bed
+                            </li>
+                            <li><span>2 </span>
+                                Bath
+                            </li>
+                            <li><span>3450 </span>
+                                Square Ft
+                            </li>
+                        </ul>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ltn__product-item -->
+            <div class="col-xl-4 col-sm-6 col-12">
+                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/4.jpg') }}" alt="#"></a>
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badg">For Rent</li>
+                            </ul>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        <div class="product-img-location">
+                            <ul>
+                                <li>
+                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                            <li><span>3 </span>
+                                Bed
+                            </li>
+                            <li><span>2 </span>
+                                Bath
+                            </li>
+                            <li><span>3450 </span>
+                                Square Ft
+                            </li>
+                        </ul>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ltn__product-item -->
+            <div class="col-xl-4 col-sm-6 col-12">
+                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/5.jpg') }}" alt="#"></a>
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badg">For Rent</li>
+                            </ul>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        <div class="product-img-location">
+                            <ul>
+                                <li>
+                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                            <li><span>3 </span>
+                                Bed
+                            </li>
+                            <li><span>2 </span>
+                                Bath
+                            </li>
+                            <li><span>3450 </span>
+                                Square Ft
+                            </li>
+                        </ul>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ltn__product-item -->
+            <div class="col-xl-4 col-sm-6 col-12">
+                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/6.jpg') }}" alt="#"></a>
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badg">For Rent</li>
+                            </ul>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        <div class="product-img-location">
+                            <ul>
+                                <li>
+                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                            <li><span>3 </span>
+                                Bed
+                            </li>
+                            <li><span>2 </span>
+                                Bath
+                            </li>
+                            <li><span>3450 </span>
+                                Square Ft
+                            </li>
+                        </ul>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
         </div>
     </div>
 </div>
-<!-- ABOUT US AREA END -->
-
-<!-- COUNTER UP AREA START -->
-<div class="ltn__counterup-area section-bg-1 pt-120 pb-70">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 align-self-center">
-                <div class="ltn__counterup-item text-color-white---">
-                    <div class="counter-icon">
-                        <i class="flaticon-select"></i>
-                    </div>
-                    <h1><span class="counter">560</span><span class="counterUp-icon">+</span> </h1>
-                    <h6>Total Area Sq</h6>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 align-self-center">
-                <div class="ltn__counterup-item text-color-white---">
-                    <div class="counter-icon">
-                        <i class="flaticon-office"></i>
-                    </div>
-                    <h1><span class="counter">197</span><span class="counterUp-letter">K</span><span class="counterUp-icon">+</span> </h1>
-                    <h6>Apartments Sold</h6>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 align-self-center">
-                <div class="ltn__counterup-item text-color-white---">
-                    <div class="counter-icon">
-                        <i class="flaticon-excavator"></i>
-                    </div>
-                    <h1><span class="counter">268</span><span class="counterUp-icon">+</span> </h1>
-                    <h6>Total Constructions</h6>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 align-self-center">
-                <div class="ltn__counterup-item text-color-white---">
-                    <div class="counter-icon">
-                        <i class="flaticon-armchair"></i>
-                    </div>
-                    <h1><span class="counter">340</span><span class="counterUp-icon">+</span> </h1>
-                    <h6>Apartio Rooms</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- COUNTER UP AREA END -->
-
-<!-- ABOUT US AREA START -->
-<div class="ltn__about-us-area pt-120 pb-90 ">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 align-self-center">
-                <div class="about-us-info-wrap">
-                    <div class="section-title-area ltn__section-title-2--- mb-30">
-                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">About Us</h6>
-                        <h1 class="section-title">Today Sells Properties</h1>
-                        <p>Houzez allow you to design unlimited panels and real estate custom
-                            forms to capture leads and keep record of all information</p>
-                    </div>
-                    <ul class="ltn__list-item-1 ltn__list-item-1-before clearfix">
-                        <li> Live Music Cocerts at Luviana</li>
-                        <li>Our SecretIsland Boat Tour is Just for You</li>
-                        <li>Live Music Cocerts at Luviana</li>
-                        <li>Live Music Cocerts at Luviana</li>
-                    </ul>
-                    <ul class="ltn__list-item-2 ltn__list-item-2-before ltn__flat-info">
-                        <li><span>3 <i class="flaticon-bed"></i></span>
-                            Bedrooms
-                        </li>
-                        <li><span>2 <i class="flaticon-clean"></i></span>
-                            Bathrooms
-                        </li>
-                        <li><span>2 <i class="flaticon-car"></i></span>
-                            Car parking
-                        </li>
-                        <li><span>3450 <i class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
-                            square Ft
-                        </li>
-                    </ul>
-                    <ul class="ltn__list-item-2 ltn__list-item-2-before--- ltn__list-item-2-img mb-50">
-                        <li>
-                            <a href="img/img-slide/11.jpg" data-rel="lightcase:myCollection">
-                                <img src="{{ asset('frontend/img/img-slide/11.jpg') }}" alt="Image">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="img/img-slide/12.jpg" data-rel="lightcase:myCollection">
-                                <img src="{{ asset('frontend/img/img-slide/12.jpg') }}" alt="Image">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="img/img-slide/13.jpg" data-rel="lightcase:myCollection">
-                                <img src="{{ asset('frontend/img/img-slide/13.jpg') }}" alt="Image">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6 align-self-center">
-                <div class="about-us-img-wrap about-img-right">
-                    <img src="{{ asset('frontend/img/others/9.png') }}" alt="About Us Image">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ABOUT US AREA END -->
+<!-- PRODUCT SLIDER AREA END -->
 
 <!-- FEATURE AREA START ( Feature - 6) -->
 <div class="ltn__feature-area section-bg-1 pt-120 pb-90 mb-120---">
@@ -575,9 +800,9 @@
                         <img src="{{ asset('frontend/img/icons/icon-img/21.png') }}" alt="#">
                     </div>
                     <div class="ltn__feature-info">
-                        <h3><a href="service-details.html">Buy a home</a></h3>
-                        <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
-                        <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                        <h3><a href="service-details.html">Rent Agreements</a></h3>
+                        <!-- <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                        <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                     </div>
                 </div>
             </div>
@@ -588,9 +813,9 @@
                         <img src="{{ asset('frontend/img/icons/icon-img/22.png') }}" alt="#">
                     </div>
                     <div class="ltn__feature-info">
-                        <h3><a href="service-details.html">Rent a home</a></h3>
-                        <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
-                        <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                        <h3><a href="service-details.html">Home Loan</a></h3>
+                        <!-- <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                        <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                     </div>
                 </div>
             </div>
@@ -601,9 +826,9 @@
                         <img src="{{ asset('frontend/img/icons/icon-img/23.png') }}" alt="#">
                     </div>
                     <div class="ltn__feature-info">
-                        <h3><a href="service-details.html">Sell a home</a></h3>
-                        <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
-                        <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a>
+                        <h3><a href="service-details.html">Property Legal Services</a></h3>
+                        <!-- <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                        <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                     </div>
                 </div>
             </div>
@@ -611,6 +836,436 @@
     </div>
 </div>
 <!-- FEATURE AREA END -->
+
+<!-- PRODUCT SLIDER AREA START -->
+<div class="ltn__product-slider-area ltn__product-gutter pt-115 pb-90">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title-area ltn__section-title-2--- text-center">
+                    <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Properties</h6>
+                    <h1 class="section-title">Featured Listings</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row ltn__product-slider-item-three-active slick-arrow-1">
+            <!-- ltn__product-item -->
+            <div class="col-lg-12">
+                <div class="ltn__product-item ltn__product-item-4 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/1.jpg') }}" alt="#"></a>
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badge bg-green">For Rent</li>
+                            </ul>
+                        </div>
+                        <div class="product-img-location-gallery">
+                            <div class="product-img-location">
+                                <ul>
+                                    <li>
+                                        <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-img-gallery">
+                                <ul>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-camera"></i> 4</a>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-film"></i> 2</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        <div class="product-description">
+                            <p>Beautiful Huge 1 Family House In Heart Of <br>
+                                Westbury. Newly Renovated With New Wood</p>
+                        </div>
+                        <ul class="ltn__list-item-2 ltn__list-item-2-before">
+                            <li><span>3 <i class="flaticon-bed"></i></span>
+                                Bedrooms
+                            </li>
+                            <li><span>2 <i class="flaticon-clean"></i></span>
+                                Bathrooms
+                            </li>
+                            <li><span>3450 <i class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
+                                square Ft
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                            <div class="agent-brief">
+                                <h6><a href="team-details.html">William Seklo</a></h6>
+                                <small>Estate Agents</small>
+                            </div>
+                        </div>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ltn__product-item -->
+            <div class="col-lg-12">
+                <div class="ltn__product-item ltn__product-item-4 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/2.jpg') }}" alt="#"></a>
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badge bg-green---">For Sale</li>
+                            </ul>
+                        </div>
+                        <div class="product-img-location-gallery">
+                            <div class="product-img-location">
+                                <ul>
+                                    <li>
+                                        <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-img-gallery">
+                                <ul>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-camera"></i> 4</a>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-film"></i> 2</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">Modern Apartments</a></h2>
+                        <div class="product-description">
+                            <p>Beautiful Huge 1 Family House In Heart Of <br>
+                                Westbury. Newly Renovated With New Wood</p>
+                        </div>
+                        <ul class="ltn__list-item-2 ltn__list-item-2-before">
+                            <li><span>3 <i class="flaticon-bed"></i></span>
+                                Bedrooms
+                            </li>
+                            <li><span>2 <i class="flaticon-clean"></i></span>
+                                Bathrooms
+                            </li>
+                            <li><span>3450 <i class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
+                                square Ft
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                            <div class="agent-brief">
+                                <h6><a href="team-details.html">William Seklo</a></h6>
+                                <small>Estate Agents</small>
+                            </div>
+                        </div>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ltn__product-item -->
+            <div class="col-lg-12">
+                <div class="ltn__product-item ltn__product-item-4 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/3.jpg') }}" alt="#"></a>
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badge bg-green">For Rent</li>
+                            </ul>
+                        </div>
+                        <div class="product-img-location-gallery">
+                            <div class="product-img-location">
+                                <ul>
+                                    <li>
+                                        <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-img-gallery">
+                                <ul>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-camera"></i> 4</a>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-film"></i> 2</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">Comfortable Apartment</a></h2>
+                        <div class="product-description">
+                            <p>Beautiful Huge 1 Family House In Heart Of <br>
+                                Westbury. Newly Renovated With New Wood</p>
+                        </div>
+                        <ul class="ltn__list-item-2 ltn__list-item-2-before">
+                            <li><span>3 <i class="flaticon-bed"></i></span>
+                                Bedrooms
+                            </li>
+                            <li><span>2 <i class="flaticon-clean"></i></span>
+                                Bathrooms
+                            </li>
+                            <li><span>3450 <i class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
+                                square Ft
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                            <div class="agent-brief">
+                                <h6><a href="team-details.html">William Seklo</a></h6>
+                                <small>Estate Agents</small>
+                            </div>
+                        </div>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ltn__product-item -->
+            <div class="col-lg-12">
+                <div class="ltn__product-item ltn__product-item-4 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/4.jpg') }}" alt="#"></a>
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badge bg-green">For Rent</li>
+                            </ul>
+                        </div>
+                        <div class="product-img-location-gallery">
+                            <div class="product-img-location">
+                                <ul>
+                                    <li>
+                                        <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-img-gallery">
+                                <ul>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-camera"></i> 4</a>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-film"></i> 2</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">Luxury villa in Rego Park </a></h2>
+                        <div class="product-description">
+                            <p>Beautiful Huge 1 Family House In Heart Of <br>
+                                Westbury. Newly Renovated With New Wood</p>
+                        </div>
+                        <ul class="ltn__list-item-2 ltn__list-item-2-before">
+                            <li><span>3 <i class="flaticon-bed"></i></span>
+                                Bedrooms
+                            </li>
+                            <li><span>2 <i class="flaticon-clean"></i></span>
+                                Bathrooms
+                            </li>
+                            <li><span>3450 <i class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
+                                square Ft
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                            <div class="agent-brief">
+                                <h6><a href="team-details.html">William Seklo</a></h6>
+                                <small>Estate Agents</small>
+                            </div>
+                        </div>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ltn__product-item -->
+            <div class="col-lg-12">
+                <div class="ltn__product-item ltn__product-item-4 text-center---">
+                    <div class="product-img">
+                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/5.jpg') }}" alt="#"></a>
+                        <div class="product-badge">
+                            <ul>
+                                <li class="sale-badge bg-green">For Rent</li>
+                            </ul>
+                        </div>
+                        <div class="product-img-location-gallery">
+                            <div class="product-img-location">
+                                <ul>
+                                    <li>
+                                        <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product-img-gallery">
+                                <ul>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-camera"></i> 4</a>
+                                    </li>
+                                    <li>
+                                        <a href="product-details.html"><i class="fas fa-film"></i> 2</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-price">
+                            <span>$34,900<label>/Month</label></span>
+                        </div>
+                        <h2 class="product-title"><a href="product-details.html">Beautiful Flat in Manhattan </a></h2>
+                        <div class="product-description">
+                            <p>Beautiful Huge 1 Family House In Heart Of <br>
+                                Westbury. Newly Renovated With New Wood</p>
+                        </div>
+                        <ul class="ltn__list-item-2 ltn__list-item-2-before">
+                            <li><span>3 <i class="flaticon-bed"></i></span>
+                                Bedrooms
+                            </li>
+                            <li><span>2 <i class="flaticon-clean"></i></span>
+                                Bathrooms
+                            </li>
+                            <li><span>3450 <i class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
+                                square Ft
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-info-bottom">
+                        <div class="real-estate-agent">
+                            <div class="agent-img">
+                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
+                            </div>
+                            <div class="agent-brief">
+                                <h6><a href="team-details.html">William Seklo</a></h6>
+                                <small>Estate Agents</small>
+                            </div>
+                        </div>
+                        <div class="product-hover-action">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                        <i class="flaticon-expand"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                        <i class="flaticon-heart-1"></i></a>
+                                </li>
+                                <li>
+                                    <a href="product-details.html" title="Product Details">
+                                        <i class="flaticon-add"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  -->
+        </div>
+    </div>
+</div>
+<!-- PRODUCT SLIDER AREA END -->
+
+
 
 <!-- PRODUCT SLIDER AREA START -->
 <div class="ltn__product-slider-area ltn__product-gutter pt-115 pb-90 plr--7">
@@ -1040,6 +1695,171 @@
 </div>
 <!-- PRODUCT SLIDER AREA END -->
 
+<!-- ABOUT US AREA START -->
+<div class="ltn__about-us-area pt-120 pb-90 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 align-self-center">
+                <div class="about-us-img-wrap about-img-left">
+                    <img src="{{ asset('frontend/img/others/7.png') }}" alt="About Us Image">
+                    <div class="about-us-img-info about-us-img-info-2 about-us-img-info-3">
+                        
+                        <div class="ltn__video-img ltn__animation-pulse1">
+                            <img src="{{ asset('frontend/img/others/8.png') }}" alt="video popup bg image">
+                            <a class="ltn__video-icon-2 ltn__video-icon-2-border---" href="https://www.youtube.com/embed/X7R-q9rsrtU?autoplay=1&showinfo=0"  data-rel="lightcase:myCollection">
+                                <i class="fa fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="about-us-info-wrap">
+                    <div class="section-title-area ltn__section-title-2--- mb-20">
+                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">About Us</h6>
+                        <h1 class="section-title">The Leading Real Estate
+                            Rental Marketplace<span>.</span></h1>
+                        <p>Over 39,000 people work for us in more than 70 countries all over the
+                            This breadth of global coverage, combined with specialist services</p>
+                    </div>
+                    <ul class="ltn__list-item-half clearfix">
+                        <li>
+                            <i class="flaticon-home-2"></i>
+                            Smart Home Design
+                        </li>
+                        <li>
+                            <i class="flaticon-mountain"></i>
+                            Beautiful Scene Around
+                        </li>
+                        <li>
+                            <i class="flaticon-heart"></i>
+                            Exceptional Lifestyle
+                        </li>
+                        <li>
+                            <i class="flaticon-secure"></i>
+                            Complete 24/7 Security
+                        </li>
+                    </ul>
+                    <div class="ltn__callout bg-overlay-theme-05  mt-30">
+                        <p>"Enimad minim veniam quis nostrud exercitation <br>
+                            llamco laboris. Lorem ipsum dolor sit amet" </p>
+                    </div>
+                    <div class="btn-wrapper animated">
+                        <a href="service.html" class="theme-btn-1 btn btn-effect-1">OUR SERVICES</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ABOUT US AREA END -->
+
+<!-- COUNTER UP AREA START -->
+<div class="ltn__counterup-area section-bg-1 pt-120 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 align-self-center">
+                <div class="ltn__counterup-item text-color-white---">
+                    <div class="counter-icon">
+                        <i class="flaticon-select"></i>
+                    </div>
+                    <h1><span class="counter">560</span><span class="counterUp-icon">+</span> </h1>
+                    <h6>Total Area Sq</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 align-self-center">
+                <div class="ltn__counterup-item text-color-white---">
+                    <div class="counter-icon">
+                        <i class="flaticon-office"></i>
+                    </div>
+                    <h1><span class="counter">197</span><span class="counterUp-letter">K</span><span class="counterUp-icon">+</span> </h1>
+                    <h6>Apartments Sold</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 align-self-center">
+                <div class="ltn__counterup-item text-color-white---">
+                    <div class="counter-icon">
+                        <i class="flaticon-excavator"></i>
+                    </div>
+                    <h1><span class="counter">268</span><span class="counterUp-icon">+</span> </h1>
+                    <h6>Total Constructions</h6>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 align-self-center">
+                <div class="ltn__counterup-item text-color-white---">
+                    <div class="counter-icon">
+                        <i class="flaticon-armchair"></i>
+                    </div>
+                    <h1><span class="counter">340</span><span class="counterUp-icon">+</span> </h1>
+                    <h6>Apartio Rooms</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- COUNTER UP AREA END -->
+
+<!-- ABOUT US AREA START -->
+<div class="ltn__about-us-area pt-120 pb-90 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 align-self-center">
+                <div class="about-us-info-wrap">
+                    <div class="section-title-area ltn__section-title-2--- mb-30">
+                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">About Us</h6>
+                        <h1 class="section-title">Today Sells Properties</h1>
+                        <p>Houzez allow you to design unlimited panels and real estate custom
+                            forms to capture leads and keep record of all information</p>
+                    </div>
+                    <ul class="ltn__list-item-1 ltn__list-item-1-before clearfix">
+                        <li> Live Music Cocerts at Luviana</li>
+                        <li>Our SecretIsland Boat Tour is Just for You</li>
+                        <li>Live Music Cocerts at Luviana</li>
+                        <li>Live Music Cocerts at Luviana</li>
+                    </ul>
+                    <ul class="ltn__list-item-2 ltn__list-item-2-before ltn__flat-info">
+                        <li><span>3 <i class="flaticon-bed"></i></span>
+                            Bedrooms
+                        </li>
+                        <li><span>2 <i class="flaticon-clean"></i></span>
+                            Bathrooms
+                        </li>
+                        <li><span>2 <i class="flaticon-car"></i></span>
+                            Car parking
+                        </li>
+                        <li><span>3450 <i class="flaticon-square-shape-design-interface-tool-symbol"></i></span>
+                            square Ft
+                        </li>
+                    </ul>
+                    <ul class="ltn__list-item-2 ltn__list-item-2-before--- ltn__list-item-2-img mb-50">
+                        <li>
+                            <a href="img/img-slide/11.jpg" data-rel="lightcase:myCollection">
+                                <img src="{{ asset('frontend/img/img-slide/11.jpg') }}" alt="Image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="img/img-slide/12.jpg" data-rel="lightcase:myCollection">
+                                <img src="{{ asset('frontend/img/img-slide/12.jpg') }}" alt="Image">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="img/img-slide/13.jpg" data-rel="lightcase:myCollection">
+                                <img src="{{ asset('frontend/img/img-slide/13.jpg') }}" alt="Image">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="about-us-img-wrap about-img-right">
+                    <img src="{{ asset('frontend/img/others/9.png') }}" alt="About Us Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ABOUT US AREA END -->
+
 <!-- APARTMENTS PLAN AREA START -->
 <div class="ltn__apartments-plan-area pt-115--- pb-70">
     <div class="container">
@@ -1213,7 +2033,7 @@
 
 <!-- VIDEO AREA START -->
 <div class="ltn__video-popup-area ltn__video-popup-margin---">
-    <div class="ltn__video-bg-img ltn__video-popup-height-600--- bg-overlay-black-30 bg-image bg-fixed ltn__animation-pulse1" data-bs-bg="img/bg/19.jpg">
+    <div class="ltn__video-bg-img ltn__video-popup-height-600--- bg-overlay-black-30 bg-image bg-fixed ltn__animation-pulse1" data-bs-bg="{{ asset('frontend/img/bg/19.jpg') }}">
         <a class="ltn__video-icon-2 ltn__video-icon-2-border---" href="https://www.youtube.com/embed/X7R-q9rsrtU?autoplay=1&showinfo=0" data-rel="lightcase:myCollection">
             <i class="fa fa-play"></i>
         </a>
@@ -1222,7 +2042,7 @@
 <!-- VIDEO AREA END -->
 
 <!-- CATEGORY AREA START -->
-<div class="ltn__category-area section-bg-1-- ltn__primary-bg before-bg-1 bg-image bg-overlay-theme-black-5--0 pt-115 pb-90 d-none" data-bs-bg="img/bg/5.jpg">
+<div class="ltn__category-area section-bg-1-- ltn__primary-bg before-bg-1 bg-image bg-overlay-theme-black-5--0 pt-115 pb-90 d-none" data-bs-bg="{{ asset('frontend/img/bg/5.jpg') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -1417,7 +2237,7 @@
 <!-- CATEGORY AREA END -->
 
 <!-- TESTIMONIAL AREA START (testimonial-7) -->
-<div class="ltn__testimonial-area section-bg-1--- bg-image-top pt-115 pb-70" data-bs-bg="img/bg/20.jpg">
+<div class="ltn__testimonial-area section-bg-1--- bg-image-top pt-115 pb-70" data-bs-bg="{{ asset('frontend/img/bg/20.jpg') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -1577,7 +2397,7 @@
             <div class="col-lg-12">
                 <div class="ltn__blog-item ltn__blog-item-3">
                     <div class="ltn__blog-img">
-                        <a href="blog-details.html"><img src="{{ asset('frontend/img/logo.png') }}img/blog/1.jpg" alt="#"></a>
+                        <a href="blog-details.html"><img src="{{ asset('frontend/img/blog/1.jpg') }}" alt="#"></a>
                     </div>
                     <div class="ltn__blog-brief">
                         <div class="ltn__blog-meta">
@@ -1608,7 +2428,7 @@
             <div class="col-lg-12">
                 <div class="ltn__blog-item ltn__blog-item-3">
                     <div class="ltn__blog-img">
-                        <a href="blog-details.html"><img src="{{ asset('frontend/img/logo.png') }}img/blog/2.jpg" alt="#"></a>
+                        <a href="blog-details.html"><img src="{{ asset('frontend/img/blog/2.jpg') }}" alt="#"></a>
                     </div>
                     <div class="ltn__blog-brief">
                         <div class="ltn__blog-meta">
@@ -1639,7 +2459,7 @@
             <div class="col-lg-12">
                 <div class="ltn__blog-item ltn__blog-item-3">
                     <div class="ltn__blog-img">
-                        <a href="blog-details.html"><img src="{{ asset('frontend/img/logo.png') }}img/blog/3.jpg" alt="#"></a>
+                        <a href="blog-details.html"><img src="{{ asset('frontend/img/blog/3.jpg') }}" alt="#"></a>
                     </div>
                     <div class="ltn__blog-brief">
                         <div class="ltn__blog-meta">
@@ -1670,7 +2490,7 @@
             <div class="col-lg-12">
                 <div class="ltn__blog-item ltn__blog-item-3">
                     <div class="ltn__blog-img">
-                        <a href="blog-details.html"><img src="{{ asset('frontend/img/logo.png') }}img/blog/4.jpg" alt="#"></a>
+                        <a href="blog-details.html"><img src="{{ asset('frontend/img/blog/4.jpg') }}" alt="#"></a>
                     </div>
                     <div class="ltn__blog-brief">
                         <div class="ltn__blog-meta">
@@ -1701,7 +2521,7 @@
             <div class="col-lg-12">
                 <div class="ltn__blog-item ltn__blog-item-3">
                     <div class="ltn__blog-img">
-                        <a href="blog-details.html"><img src="{{ asset('frontend/img/logo.png') }}img/blog/5.jpg" alt="#"></a>
+                        <a href="blog-details.html"><img src="{{ asset('frontend/img/blog/5.jpg') }}" alt="#"></a>
                     </div>
                     <div class="ltn__blog-brief">
                         <div class="ltn__blog-meta">
@@ -1735,7 +2555,7 @@
 <!-- BLOG AREA END -->
 
 <!-- CALL TO ACTION START (call-to-action-6) -->
-<div class="ltn__call-to-action-area call-to-action-6 before-bg-bottom" data-bs-bg="img/1.jpg--">
+<div class="ltn__call-to-action-area call-to-action-6 before-bg-bottom" data-bs-bg="{{ asset('frontend/img/1.jpg--') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -1759,69 +2579,91 @@
 @push('scripts')
 <script>
     $('#globalSearch').select2({
-            placeholder: 'Search city, area, project, landmark...',
-            allowClear: true,
-            minimumInputLength: 2,
-            width: '100%',
-            ajax: {
-                url: '/new-web-prod/search-suggestions.php',
-                dataType: 'json',
-                delay: 250,
-                data: function (params) {
-                    return {
-                        q: params.term
-                    };
-                },
-                processResults: function (data) {
-                    return {
-                        results: data
-                    };
+        placeholder: 'Search property name, area, city, landmark...',
+        allowClear: true,
+        minimumInputLength: 2,
+        width: '100%',
+        ajax: {
+            url: "{{ route('property.search') }}",
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term,
+                    property_type: $('#propertyType').val(),
+                    category: "buy"
+                };
+            },
+            processResults: function (data) {
+                if (!data.status) {
+                    return { results: [] };
                 }
+                return {
+                    results: data.response
+                };
             }
-        });
+        }
+    });
 
-        $('#globalSearch2').select2({
-            placeholder: 'Search city, area, project, landmark...',
-            allowClear: true,
-            minimumInputLength: 2,
-            width: '100%',
-            ajax: {
-                url: '/new-web-prod/search-suggestions.php',
-                dataType: 'json',
-                delay: 250,
-                data: function (params) {
-                    return {
-                        q: params.term
-                    };
-                },
-                processResults: function (data) {
-                    return {
-                        results: data
-                    };
+    $('#globalSearch2').select2({
+        placeholder: 'Search property name, area, city, landmark...',
+        allowClear: true,
+        minimumInputLength: 2,
+        width: '100%',
+        ajax: {
+            url: "{{ route('property.search') }}",
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term,
+                    property_type: $('#propertyType').val(),
+                    category: "rent"
+                };
+            },
+            processResults: function (data) {
+                if (!data.status) {
+                    return { results: [] };
                 }
+                return {
+                    results: data.response
+                };
             }
-        });
+        }
+    });
 
-        $('#globalSearch3').select2({
-            placeholder: 'Search city, area, project, landmark...',
-            allowClear: true,
-            minimumInputLength: 2,
-            width: '100%',
-            ajax: {
-                url: '/new-web-prod/search-suggestions.php',
-                dataType: 'json',
-                delay: 250,
-                data: function (params) {
-                    return {
-                        q: params.term
-                    };
-                },
-                processResults: function (data) {
-                    return {
-                        results: data
-                    };
+    $('#globalSearch3').select2({
+        placeholder: 'Search property name, area, city, landmark...',
+        allowClear: true,
+        minimumInputLength: 2,
+        width: '100%',
+        ajax: {
+            url: "{{ route('property.search') }}",
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term,
+                    property_type: $('#propertyType').val(),
+                    category: "new"
+                };
+            },
+            processResults: function (data) {
+                if (!data.status) {
+                    return { results: [] };
                 }
+                return {
+                    results: data.response
+                };
             }
-        });
+        }
+    });
+
+    $('#globalSearch').on('select2:select', function (e) {
+        
+        let id = e.params.data.id;
+        alert(id)
+        /* window.location.href = "/property/" + id;*/
+    });
 </script>
 @endpush

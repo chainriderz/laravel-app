@@ -13,9 +13,13 @@ class PropertyTypesSeeder extends Seeder
      */
     public function run(): void
     {
-        PropertyType::insert([
-		    ['name' => 'Residential'],
-		    ['name' => 'Commercial'],
-		]);
+        PropertyType::upsert(
+            [
+                ['id' => 1, 'name' => 'All Residential'],
+                ['id' => 2, 'name' => 'All Commercial'],
+            ],
+            ['id'],        // unique key
+            ['name']       // columns to update
+        );
     }
 }

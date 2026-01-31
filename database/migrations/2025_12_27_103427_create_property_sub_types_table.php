@@ -17,6 +17,7 @@ return new class extends Migration
                   ->constrained('property_types')
                   ->cascadeOnDelete();
             $table->string('name'); // Flat, Villa, Shop, etc.
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
 
             $table->unique(['property_type_id', 'name']); // Avoid duplicates
