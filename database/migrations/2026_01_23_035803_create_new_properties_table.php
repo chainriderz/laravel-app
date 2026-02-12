@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('project_name');
             $table->string('sector_no', 50);
             $table->string('landmark', 150);
+            $table->string('bhk', 200);
+            $table->string('amount', 200);
             $table->string('builder_name')->nullable();
             $table->string('rera_number')->nullable();
             $table->date('launch_date')->nullable();
@@ -40,6 +42,8 @@ return new class extends Migration
                   ->cascadeOnDelete();
 
             $table->enum('showtohome', ['0', '1'])->default('0');
+
+            $table->string('description')->nullable();
 
             // property status
             $table->boolean('is_active')->default(true);

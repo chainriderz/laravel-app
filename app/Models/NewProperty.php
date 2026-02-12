@@ -41,4 +41,54 @@ class NewProperty extends Model
     {
         return $this->belongsTo(Area::class);
     }
+
+    public function assets()
+    {
+        return $this->morphMany(
+            Asset::class,
+            'assets',
+            'table_name',
+            'table_id'
+        );
+    }
+
+    public function thumbnail()
+    {
+        return $this->assets()
+                    ->where('type', 'thumbnail')
+                    ->where('is_active', true)
+                    ->first();
+    }
+
+    public function images()
+    {
+        return $this->assets()
+                    ->where('type', 'image')
+                    ->where('is_active', true)
+                    ->orderBy('sort_order');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query
+                    ->where('is_active', true)
+                    ->where(function ($q) {
+                    $q->whereNull('active_till')
+                        ->orWhere('active_till', '>=', now());
+                    });
+    }
+
+    public function scopeHomeVisible($query)
+    {
+        return $query->active()
+                     ->where('showtohome', '1')
+                     ->with([
+                        'city:id,name',
+                        'area:id,name',
+                        'assets' => function ($q) {
+                            $q->where('is_active', true)
+                              ->orderBy('sort_order');
+                        },
+                    ]);
+    }
 }

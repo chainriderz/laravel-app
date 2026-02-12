@@ -7,6 +7,22 @@ use Illuminate\Http\Request;
 
 class NewPropertyController extends Controller
 {
+    public function listing(){
+        return NewProperty::with([
+            'assets' => function ($q) {
+                $q->active()->where('type', 'thumbnail');
+            }
+        ])->active()->get();
+    }
+
+    public function detail(Request $request){
+        return NewProperty::with([
+            'assets' => function ($q) {
+                $q->active()->orderBy('sort_order');
+            }
+        ])->find($id);
+
+    }
     /**
      * Display a listing of the resource.
      */

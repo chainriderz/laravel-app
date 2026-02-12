@@ -6,6 +6,7 @@ use App\Models\HomeModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Property;
+use App\Models\NewProperty;
 use App\Models\Area;
 use App\Models\City;
 use App\Models\PropertyType;
@@ -19,26 +20,22 @@ class HomeController extends Controller
     public function index()
     {
         $propertyTypes = PropertyType::where('is_active', true)->orderBy('name')->get();
-        $rentalProp = Property::activeRent()->get();
-        $saleProp = Property::activeBuy()->get();
+        $rentProp = Property::HomeVisibleRent()->get();
+        $buyProp = Property::HomeVisibleBuy()->get();
+        $newProp = NewProperty::HomeVisible()->get();
 
         $age = 30;
 
         return view('frontend.home', [
             'propertyTypes' => $propertyTypes,
-            'rentalProp'    => $rentalProp,
-            'saleProp'      => $saleProp,
+            'rentProp'    => $rentProp,
+            'buyProp'      => $buyProp,
+            'newProp'       => $newProp
         ]);
     }
 
     public function search(Request $request)
     {
-        $response = collect([
-            'status'   => false,
-            'message'  => null,
-            'response' => null,
-        ]);
-
         // Normalize request
         $request->merge([
             'property_type' => $request->property_type ?: null
@@ -53,8 +50,8 @@ class HomeController extends Controller
 
         // ❌ If validation fails
         if ($validator->fails()) {
-            $response['message'] = $validator->errors()->first();
-            return response()->json($response, 422);
+            $error = $validator->errors()->first();
+            return $this->error('No active properties found', 404, $error);
         }
 
         $query = trim($request->q);
@@ -161,10 +158,7 @@ class HomeController extends Controller
                 ]);
             });
 
-        $response['status'] = true;
-        $response['response'] = $results;
-
-        return response()->json($response);
+        return $this->success($results, 'Active properties fetched');
     }
 
     /**

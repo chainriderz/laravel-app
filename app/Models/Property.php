@@ -37,6 +37,27 @@ class Property extends Model
         return $this->belongsTo(City::class);
     }
 
+    public function assets()
+    {
+        return $this->morphMany(Asset::class, 'assetable');
+    }
+
+    public function thumbnail()
+    {
+        return $this->assets()
+                    ->where('type', 'thumbnail')
+                    ->where('is_active', true)
+                    ->first();
+    }
+
+    public function images()
+    {
+        return $this->assets()
+                    ->where('type', 'image')
+                    ->where('is_active', true)
+                    ->orderBy('sort_order');
+    }
+
     /**
      * Scope: fetch only active rental properties
      */
@@ -51,6 +72,12 @@ class Property extends Model
                     });
     }
 
+    public function scopeHomeVisibleRent($query)
+    {
+        return $query->ActiveRent()
+                     ->where('showtohome', '1');
+    }
+
     /**
      * Scope: fetch only active sell properties
      */
@@ -63,5 +90,11 @@ class Property extends Model
                     $q->whereNull('active_till')
                         ->orWhere('active_till', '>=', now());
                     });
+    }
+
+    public function scopeHomeVisibleBuy($query)
+    {
+        return $query->ActiveBuy()
+                     ->where('showtohome', '1');
     }
 }

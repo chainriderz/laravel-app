@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
             PropertySubTypesSeeder::class,
             CitySeeder::class,
             AreaSeeder::class,
-            PropertySeeder::class
+            PropertySeeder::class,
+            NewPropertySeeder::class,
+            AssetsSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
 

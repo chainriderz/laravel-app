@@ -85,4 +85,21 @@ class PropertyController extends Controller
         return redirect()->route('properties.index')
             ->with('success', 'Property deleted successfully');
     }
+
+    public function listing(){
+        return Property::with([
+            'assets' => function ($q) {
+                $q->active()->where('type', 'thumbnail');
+            }
+        ])->active()->get();
+    }
+
+    public function detail(Request $request){
+        return Property::with([
+            'assets' => function ($q) {
+                $q->active()->orderBy('sort_order');
+            }
+        ])->find($id);
+
+    }
 }

@@ -404,6 +404,9 @@
         </div>
         <div class="row ltn__product-slider-item-three-active slick-arrow-1">
             <!-- ltn__product-item -->
+            <?php
+            foreach ($newProp as $newPropKey => $newPropValue) {
+            ?>
             <div class="col-xl-4 col-sm-6 col-12">
                 <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                     <div class="product-img">
@@ -415,29 +418,29 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-badge">
+                        <!-- <div class="product-badge">
                             <ul>
                                 <li class="sale-badg">For Rent</li>
                             </ul>
-                        </div>
-                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
+                        </div> -->
+                        <h2 class="product-title"><a href="product-details.html"><?php echo $newPropValue->project_name;?></a></h2>
                         <div class="product-img-location">
                             <ul>
                                 <li>
-                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                    <a href="locations.html"><i class="flaticon-pin"></i><?php echo $newPropValue->area->name .", ". $newPropValue->city->name; ?></a>
                                 </li>
                             </ul>
                         </div>
                         <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                            <li><span>3 </span>
-                                Bed
+                            <li>
+                                <span><?php echo $newPropValue->bhk;?></span>
                             </li>
-                            <li><span>2 </span>
+                            <!-- <li><span>2 </span>
                                 Bath
                             </li>
                             <li><span>3450 </span>
                                 Square Ft
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="product-hover-action">
                             <ul>
@@ -460,13 +463,16 @@
                     </div>
                     <div class="product-info-bottom">
                         <div class="product-price">
-                            <span>$34,900<label>/Month</label></span>
+                            <span>$<?php echo $newPropValue->amount;?><label>onwards</label></span>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php
+            }
+            ?>
             <!-- ltn__product-item -->
-            <div class="col-xl-4 col-sm-6 col-12">
+            <!-- <div class="col-xl-4 col-sm-6 col-12">
                 <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
                     <div class="product-img">
                         <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/2.jpg') }}" alt="#"></a>
@@ -526,255 +532,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- ltn__product-item -->
-            <div class="col-xl-4 col-sm-6 col-12">
-                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                    <div class="product-img">
-                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/3.jpg') }}" alt="#"></a>
-                        <div class="real-estate-agent">
-                            <div class="agent-img">
-                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-badge">
-                            <ul>
-                                <li class="sale-badg">For Rent</li>
-                            </ul>
-                        </div>
-                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                        <div class="product-img-location">
-                            <ul>
-                                <li>
-                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                            <li><span>3 </span>
-                                Bed
-                            </li>
-                            <li><span>2 </span>
-                                Bath
-                            </li>
-                            <li><span>3450 </span>
-                                Square Ft
-                            </li>
-                        </ul>
-                        <div class="product-hover-action">
-                            <ul>
-                                <li>
-                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                        <i class="flaticon-expand"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                        <i class="flaticon-heart-1"></i></a>
-                                </li>
-                                <li>
-                                    <a href="product-details.html" title="Product Details">
-                                        <i class="flaticon-add"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-info-bottom">
-                        <div class="product-price">
-                            <span>$34,900<label>/Month</label></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ltn__product-item -->
-            <div class="col-xl-4 col-sm-6 col-12">
-                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                    <div class="product-img">
-                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/4.jpg') }}" alt="#"></a>
-                        <div class="real-estate-agent">
-                            <div class="agent-img">
-                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-badge">
-                            <ul>
-                                <li class="sale-badg">For Rent</li>
-                            </ul>
-                        </div>
-                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                        <div class="product-img-location">
-                            <ul>
-                                <li>
-                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                            <li><span>3 </span>
-                                Bed
-                            </li>
-                            <li><span>2 </span>
-                                Bath
-                            </li>
-                            <li><span>3450 </span>
-                                Square Ft
-                            </li>
-                        </ul>
-                        <div class="product-hover-action">
-                            <ul>
-                                <li>
-                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                        <i class="flaticon-expand"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                        <i class="flaticon-heart-1"></i></a>
-                                </li>
-                                <li>
-                                    <a href="product-details.html" title="Product Details">
-                                        <i class="flaticon-add"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-info-bottom">
-                        <div class="product-price">
-                            <span>$34,900<label>/Month</label></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ltn__product-item -->
-            <div class="col-xl-4 col-sm-6 col-12">
-                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                    <div class="product-img">
-                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/5.jpg') }}" alt="#"></a>
-                        <div class="real-estate-agent">
-                            <div class="agent-img">
-                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-badge">
-                            <ul>
-                                <li class="sale-badg">For Rent</li>
-                            </ul>
-                        </div>
-                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                        <div class="product-img-location">
-                            <ul>
-                                <li>
-                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                            <li><span>3 </span>
-                                Bed
-                            </li>
-                            <li><span>2 </span>
-                                Bath
-                            </li>
-                            <li><span>3450 </span>
-                                Square Ft
-                            </li>
-                        </ul>
-                        <div class="product-hover-action">
-                            <ul>
-                                <li>
-                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                        <i class="flaticon-expand"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                        <i class="flaticon-heart-1"></i></a>
-                                </li>
-                                <li>
-                                    <a href="product-details.html" title="Product Details">
-                                        <i class="flaticon-add"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-info-bottom">
-                        <div class="product-price">
-                            <span>$34,900<label>/Month</label></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ltn__product-item -->
-            <div class="col-xl-4 col-sm-6 col-12">
-                <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
-                    <div class="product-img">
-                        <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/6.jpg') }}" alt="#"></a>
-                        <div class="real-estate-agent">
-                            <div class="agent-img">
-                                <a href="team-details.html"><img src="{{ asset('frontend/img/blog/author.jpg') }}" alt="#"></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-badge">
-                            <ul>
-                                <li class="sale-badg">For Rent</li>
-                            </ul>
-                        </div>
-                        <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
-                        <div class="product-img-location">
-                            <ul>
-                                <li>
-                                    <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
-                            <li><span>3 </span>
-                                Bed
-                            </li>
-                            <li><span>2 </span>
-                                Bath
-                            </li>
-                            <li><span>3450 </span>
-                                Square Ft
-                            </li>
-                        </ul>
-                        <div class="product-hover-action">
-                            <ul>
-                                <li>
-                                    <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                        <i class="flaticon-expand"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                        <i class="flaticon-heart-1"></i></a>
-                                </li>
-                                <li>
-                                    <a href="product-details.html" title="Product Details">
-                                        <i class="flaticon-add"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-info-bottom">
-                        <div class="product-price">
-                            <span>$34,900<label>/Month</label></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> -->
             <!--  -->
         </div>
     </div>
@@ -844,26 +602,29 @@
             <div class="col-lg-12">
                 <div class="section-title-area ltn__section-title-2--- text-center">
                     <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Properties</h6>
-                    <h1 class="section-title">Featured Listings</h1>
+                    <h1 class="section-title">Property Sale</h1>
                 </div>
             </div>
         </div>
         <div class="row ltn__product-slider-item-three-active slick-arrow-1">
             <!-- ltn__product-item -->
+            <?php
+            foreach ($buyProp as $buyPropKey => $buyPropValue) {
+            ?>
             <div class="col-lg-12">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
                         <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/1.jpg') }}" alt="#"></a>
                         <div class="product-badge">
                             <ul>
-                                <li class="sale-badge bg-green">For Rent</li>
+                                <li class="sale-badge bg-green">For Buy</li>
                             </ul>
                         </div>
                         <div class="product-img-location-gallery">
                             <div class="product-img-location">
                                 <ul>
                                     <li>
-                                        <a href="locations.html"><i class="flaticon-pin"></i> Belmont Gardens, Chicago</a>
+                                        <a href="locations.html"><i class="flaticon-pin"></i> <?php echo $buyPropValue->area->name .", ". $buyPropValue->city->name; ?></a>
                                     </li>
                                 </ul>
                             </div>
@@ -881,7 +642,7 @@
                     </div>
                     <div class="product-info">
                         <div class="product-price">
-                            <span>$34,900<label>/Month</label></span>
+                            <span>$<?php echo $buyPropValue->amount;?><label>/Month</label></span>
                         </div>
                         <h2 class="product-title"><a href="product-details.html">New Apartment Nice View</a></h2>
                         <div class="product-description">
@@ -931,8 +692,11 @@
                     </div>
                 </div>
             </div>
+            <?php
+            }
+            ?>
             <!-- ltn__product-item -->
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
                         <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/2.jpg') }}" alt="#"></a>
@@ -1012,9 +776,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- ltn__product-item -->
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
                         <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/3.jpg') }}" alt="#"></a>
@@ -1094,9 +858,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- ltn__product-item -->
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
                         <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/4.jpg') }}" alt="#"></a>
@@ -1176,9 +940,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- ltn__product-item -->
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
                 <div class="ltn__product-item ltn__product-item-4 text-center---">
                     <div class="product-img">
                         <a href="product-details.html"><img src="{{ asset('frontend/img/product-3/5.jpg') }}" alt="#"></a>
@@ -1258,7 +1022,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!--  -->
         </div>
     </div>
@@ -2594,12 +2358,12 @@
                     category: "buy"
                 };
             },
-            processResults: function (data) {
-                if (!data.status) {
+            processResults: function (response) {
+                if (!response.success) {
                     return { results: [] };
                 }
                 return {
-                    results: data.response
+                    results: response.data
                 };
             }
         }
@@ -2621,12 +2385,12 @@
                     category: "rent"
                 };
             },
-            processResults: function (data) {
-                if (!data.status) {
+            processResults: function (response) {
+                if (!response.success) {
                     return { results: [] };
                 }
                 return {
-                    results: data.response
+                    results: response.data
                 };
             }
         }
@@ -2648,12 +2412,12 @@
                     category: "new"
                 };
             },
-            processResults: function (data) {
-                if (!data.status) {
+            processResults: function (response) {
+                if (!response.success) {
                     return { results: [] };
                 }
                 return {
-                    results: data.response
+                    results: response.data
                 };
             }
         }

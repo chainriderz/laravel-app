@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('sector_no', 50);
             $table->string('landmark', 150);
             $table->string('zip', 10);
+            $table->string('bhk', 200);
             $table->string('amount', 200);
             $table->enum('category', ['buy', 'rent']);
 
@@ -42,6 +43,8 @@ return new class extends Migration
                   ->cascadeOnDelete();
 
             $table->enum('showtohome', ['0', '1'])->default('0');
+
+            $table->string('description')->nullable();
 
             // property status
             $table->boolean('is_active')->default(true);

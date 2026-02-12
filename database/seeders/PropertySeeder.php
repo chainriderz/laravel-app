@@ -47,12 +47,17 @@ class PropertySeeder extends Seeder
                 'city_id' => fake()->randomElement($cities),
 
                 'zip' => '400' . rand(100, 999),
+                'bhk' => '1 bhk',
                 'amount' => fake()->numberBetween(1500000, 9000000),
 
                 'category' => fake()->randomElement(['buy', 'rent']),
 
                 'property_type_id' => fake()->randomElement($types),
                 'property_sub_type_id' => fake()->randomElement($subTypes),
+
+                'showtohome' => '1',
+
+                'description' => fake()->text(),
 
                 'is_active' => true,
 
